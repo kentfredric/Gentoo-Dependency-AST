@@ -9,7 +9,7 @@ BEGIN {
   $Gentoo::Dependency::AST::VERSION = '0.001000';
 }
 
-# ABSTRACT: Convert a canonicalised (R|P|)DEPEND into an AST
+# ABSTRACT: Convert a canonicalized (R|P|)DEPEND into an Abstract Syntax Tree
 
 
 
@@ -77,7 +77,7 @@ __END__
 
 =head1 NAME
 
-Gentoo::Dependency::AST - Convert a canonicalised (R|P|)DEPEND into an AST
+Gentoo::Dependency::AST - Convert a canonicalized (R|P|)DEPEND into an Abstract Syntax Tree
 
 =head1 VERSION
 
@@ -90,7 +90,7 @@ of dependencies that are required.
 
 Namely: C<PDEPEND> , C<RDEPEND> and C<DEPEND>
 
-If you're a paludis user, one can get the canonicalised versions of these variables via
+If you're a C<paludis> user, one can get the canonicalized versions of these variables via
 
     cave show -c =cat/pkg-version
 

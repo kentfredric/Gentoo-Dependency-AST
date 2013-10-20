@@ -1,5 +1,5 @@
 ---
-abstract: 'Convert a canonicalised (R|P|)DEPEND into an AST'
+abstract: 'Convert a canonicalized (R|P|)DEPEND into an Abstract Syntax Tree'
 author:
   - 'Kent Fredric <kentfredric@gmail.com>'
 build_requires:

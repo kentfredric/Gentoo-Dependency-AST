@@ -18,8 +18,8 @@ use Class::Tiny {
 };
 
 sub _croak {
-    require Carp;
-    goto &Carp::croak;
+  require Carp;
+  goto &Carp::croak;
 }
 ## no critic (ProhibitBuiltinHomonyms)
 sub state {

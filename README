@@ -1,6 +1,6 @@
 NAME
-    Gentoo::Dependency::AST - Convert a canonicalised (R|P|)DEPEND into an
-    AST
+    Gentoo::Dependency::AST - Convert a canonicalized (R|P|)DEPEND into an
+    Abstract Syntax Tree
 
 VERSION
     version 0.001000
@@ -12,7 +12,7 @@ SYNOPSIS
 
     Namely: "PDEPEND" , "RDEPEND" and "DEPEND"
 
-    If you're a paludis user, one can get the canonicalised versions of
+    If you're a "paludis" user, one can get the canonicalized versions of
     these variables via
 
         cave show -c =cat/pkg-version

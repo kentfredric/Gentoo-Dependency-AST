@@ -12,7 +12,7 @@ my %module_build_args = (
   "configure_requires" => {
     "Module::Build" => "0.4007"
   },
-  "dist_abstract" => "Convert a canonicalised (R|P|)DEPEND into an AST",
+  "dist_abstract" => "Convert a canonicalized (R|P|)DEPEND into an Abstract Syntax Tree",
   "dist_author" => [
     "Kent Fredric <kentfredric\@gmail.com>"
   ],
