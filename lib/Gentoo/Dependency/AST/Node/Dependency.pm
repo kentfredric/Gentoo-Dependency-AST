@@ -14,29 +14,35 @@ use parent 'Gentoo::Dependency::AST::Node';
 
 use Class::Tiny qw( depstring );
 
+sub _croak {
+  require Carp;
+  goto &Carp::croak;
+}
+
 sub BUILD {
-  die "depstring not defined"   if not defined $_[0]->depstring;
-  die "depstring has no length" if not length $_[0]->depstring;
+  return _croak(q[<depstring> not defined])   if not defined $_[0]->depstring;
+  return _croak(q[<depstring> has no length]) if not length $_[0]->depstring;
+  return;
 }
 
 sub add_dep {
-  die "Dependencies cannot have children";
+  return _croak(q[Dependencies cannot have children]);
 }
 
 sub enter_notuse_group {
-  die "Dependencies cannot have 'use' child components";
+  return _croak(q[Dependencies cannot have 'use' child components]);
 }
 
 sub enter_use_group {
-  die "Dependencies cannot have 'use' child components";
+  return _croak(q[Dependencies cannot have 'use' child components]);
 }
 
 sub enter_or_group {
-  die "Dependencies cannot have 'or' child components";
+  return _croak(q[Dependencies cannot have 'or' child components]);
 }
 
 sub enter_and_group {
-  die "Dependencies cannot have 'and' child components";
+  return _croak(q[Dependencies cannot have 'and' child components]);
 }
 
 1;
