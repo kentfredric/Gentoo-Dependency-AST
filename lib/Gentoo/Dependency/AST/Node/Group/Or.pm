@@ -9,6 +9,8 @@ BEGIN {
   $Gentoo::Dependency::AST::Node::Group::Or::VERSION = '0.001000';
 }
 
+# ABSTRACT: A group of dependencies which only one is required
+
 use parent 'Gentoo::Dependency::AST::Node';
 
 1;
@@ -21,7 +23,7 @@ __END__
 
 =head1 NAME
 
-Gentoo::Dependency::AST::Node::Group::Or
+Gentoo::Dependency::AST::Node::Group::Or - A group of dependencies which only one is required
 
 =head1 VERSION
 

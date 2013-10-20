@@ -9,6 +9,8 @@ BEGIN {
   $Gentoo::Dependency::AST::Node::TopLevel::VERSION = '0.001000';
 }
 
+# ABSTRACT: A C<root> node that contains all other nodes
+
 use parent 'Gentoo::Dependency::AST::Node';
 
 sub _croak {
@@ -30,7 +32,7 @@ __END__
 
 =head1 NAME
 
-Gentoo::Dependency::AST::Node::TopLevel
+Gentoo::Dependency::AST::Node::TopLevel - A C<root> node that contains all other nodes
 
 =head1 VERSION
 

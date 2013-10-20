@@ -10,6 +10,8 @@ BEGIN {
   $Gentoo::Dependency::AST::Node::Group::NotUse::VERSION = '0.001000';
 }
 
+# ABSTRACT: A group of dependencies that require a C<useflag> disabled to trigger require
+
 use parent 'Gentoo::Dependency::AST::Node::Group::Use';
 
 1;
@@ -22,7 +24,7 @@ __END__
 
 =head1 NAME
 
-Gentoo::Dependency::AST::Node::Group::NotUse
+Gentoo::Dependency::AST::Node::Group::NotUse - A group of dependencies that require a C<useflag> disabled to trigger require
 
 =head1 VERSION
 
