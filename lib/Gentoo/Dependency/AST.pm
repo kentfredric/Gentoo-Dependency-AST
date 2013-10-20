@@ -68,7 +68,7 @@ Maps to L<< C<::Node::Group::And>|Gentoo::Dependency::AST::Node::Group::And >>
 
 sub _carp {
   require Carp;
-  goto Carp::carp;
+  goto &Carp::carp;
 }
 
 sub parse_dep_string {
