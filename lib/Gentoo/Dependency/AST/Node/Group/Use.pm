@@ -10,14 +10,18 @@ BEGIN {
   $Gentoo::Dependency::AST::Node::Group::Use::VERSION = '0.001000';
 }
 
+# ABSTRACT: A group of dependencies that require a C<useflag> to be required
+
 use parent 'Gentoo::Dependency::AST::Node';
 
 use Class::Tiny qw( useflag );
+
 
 sub _croak {
   require Carp;
   goto &Carp::croak;
 }
+
 
 sub BUILD {
   my ( $self, $args ) = @_;
@@ -35,11 +39,25 @@ __END__
 
 =head1 NAME
 
-Gentoo::Dependency::AST::Node::Group::Use
+Gentoo::Dependency::AST::Node::Group::Use - A group of dependencies that require a C<useflag> to be required
 
 =head1 VERSION
 
 version 0.001000
+
+=head1 METHODS
+
+=head2 C<BUILD>
+
+Ensures that C<useflag> is provided.
+
+=head1 ATTRIBUTES
+
+=head2 C<useflag>
+
+B<Required.>
+
+The literal flag that is required enabled to trigger this group.
 
 =head1 AUTHOR
 
