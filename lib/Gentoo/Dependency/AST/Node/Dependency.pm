@@ -10,6 +10,8 @@ BEGIN {
   $Gentoo::Dependency::AST::Node::Dependency::VERSION = '0.001000';
 }
 
+# ABSTRACT: A single C<Gentoo> dependency atom
+
 use parent 'Gentoo::Dependency::AST::Node';
 
 use Class::Tiny qw( depstring );
@@ -56,7 +58,7 @@ __END__
 
 =head1 NAME
 
-Gentoo::Dependency::AST::Node::Dependency
+Gentoo::Dependency::AST::Node::Dependency - A single C<Gentoo> dependency atom
 
 =head1 VERSION
 

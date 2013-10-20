@@ -22,6 +22,7 @@ sub _croak {
 sub BUILD {
   my ( $self, $args ) = @_;
   return _croak(q[useflag not defined]) if not defined $self->useflag;
+  return;
 }
 
 1;

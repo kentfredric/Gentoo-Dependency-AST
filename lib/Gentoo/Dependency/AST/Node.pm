@@ -10,15 +10,19 @@ BEGIN {
   $Gentoo::Dependency::AST::Node::VERSION = '0.001000';
 }
 
+# ABSTRACT: An Abstract Syntax Tree Node
+
 use Class::Tiny {
   children => sub { [] }
 };
+
 
 sub add_dep {
   my ( $self, $state, $dep ) = @_;
   push @{ $self->children }, $dep;
   return;
 }
+
 
 sub enter_notuse_group {
   my ( $self, $state, $group ) = @_;
@@ -27,12 +31,14 @@ sub enter_notuse_group {
   return;
 }
 
+
 sub enter_use_group {
   my ( $self, $state, $group ) = @_;
   push @{ $self->children }, $group;
   $state->_pushstack($group);
   return;
 }
+
 
 sub enter_or_group {
   my ( $self, $state, $group ) = @_;
@@ -41,12 +47,15 @@ sub enter_or_group {
   return;
 }
 
+
 sub enter_and_group {
   my ( $self, $state, $group ) = @_;
   push @{ $self->children }, $group;
   $state->_pushstack($group);
   return;
 }
+
+
 
 sub exit_group {
   my ( $self, $state ) = @_;
@@ -64,11 +73,54 @@ __END__
 
 =head1 NAME
 
-Gentoo::Dependency::AST::Node
+Gentoo::Dependency::AST::Node - An Abstract Syntax Tree Node
 
 =head1 VERSION
 
 version 0.001000
+
+=head1 METHODS
+
+=head2 C<add_dep>
+
+Tell C<$node> that a dependency C<$dep_object> has been seen.
+
+    $node->add_dep( $state_object, $dep_object );
+
+=head2 C<enter_notuse_group>
+
+Tell C<$node> that a child C<!use?> group C<$notuse_object> has been seen,
+and pass tree construction to that object.
+
+    $node->enter_notuse_group( $state_object, $notuse_object );
+
+=head2 C<enter_use_group>
+
+Tell C<$node> that a child C<use?> group C<$use_object> has been seen,
+and to pass tree construction to that object.
+
+    $node->enter_use_group( $state_object, $use_object );
+
+=head2 C<enter_or_group>
+
+Tell C<$node> that a child C<|| ()> group C<$or_object> has been seen,
+and to pass tree construction to that object.
+
+    $node->enter_or_group( $state_object, $or_object );
+
+=head2 C<enter_and_group>
+
+Tell C<$node> that a child C<()> group C<$and_object> has been seen,
+and to pass tree construction to that object.
+
+    $node->enter_and_group( $state_object, $and_object );
+
+=head2 C<exit>
+
+Tell C<$node> that a group terminator has been seen, so
+finalise the present node, and defer tree construction to the parent object.
+
+    $node->enter_and_group( $state_object );
 
 =head1 AUTHOR
 
