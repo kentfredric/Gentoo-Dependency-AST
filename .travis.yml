@@ -11,6 +11,7 @@ env:
     - STERILIZE_ENV=1
     - STERILIZE_ENV=0 RELEASE_TESTING=1 AUTHOR_TESTING=1
 before_install:
+  - perlbrew list
   - time perl ./maint-travis-ci/sterilize_env.pl
 install:
   - time perl ./maint-travis-ci/install_deps.pl
