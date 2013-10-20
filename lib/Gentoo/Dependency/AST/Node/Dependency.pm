@@ -16,10 +16,12 @@ use parent 'Gentoo::Dependency::AST::Node';
 
 use Class::Tiny qw( depstring );
 
+
 sub _croak {
   require Carp;
   goto &Carp::croak;
 }
+
 
 sub BUILD {
   my ( $self, $args ) = @_;
@@ -63,6 +65,25 @@ Gentoo::Dependency::AST::Node::Dependency - A single C<Gentoo> dependency atom
 =head1 VERSION
 
 version 0.001000
+
+=head1 METHODS
+
+=head2 C<BUILD>
+
+=head1 ATTRIBUTES
+
+=head2 C<depstring>
+
+B<Required.>
+
+Should be a Gentoo dependency atom, e.g:
+
+    dev-lang/perl
+    =dev-lang/perl-5.10
+    dev-lang/perl:0
+    =dev-lang/perl-5.10[test]
+    =dev-lang/perl-5.10[-test]
+    !<dev-lang/perl-5.18.0
 
 =head1 AUTHOR
 
