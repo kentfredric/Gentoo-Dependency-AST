@@ -12,6 +12,7 @@ BEGIN {
 
 # ABSTRACT: An Abstract Syntax Tree Node
 
+
 use Class::Tiny {
   children => sub { [] }
 };
@@ -115,12 +116,18 @@ and to pass tree construction to that object.
 
     $node->enter_and_group( $state_object, $and_object );
 
-=head2 C<exit>
+=head2 C<exit_group>
 
 Tell C<$node> that a group terminator has been seen, so
-finalise the present node, and defer tree construction to the parent object.
+finalize the present node, and defer tree construction to the parent object.
 
     $node->enter_and_group( $state_object );
+
+=head1 ATTRIBUTES
+
+=head2 C<children>
+
+Contains the child nodes of this node. May not be relevant for some node types.
 
 =head1 AUTHOR
 
