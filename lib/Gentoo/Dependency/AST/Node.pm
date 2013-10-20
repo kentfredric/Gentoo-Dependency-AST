@@ -57,7 +57,6 @@ sub enter_and_group {
 }
 
 
-
 sub exit_group {
   my ( $self, $state ) = @_;
   $state->_popstack;
