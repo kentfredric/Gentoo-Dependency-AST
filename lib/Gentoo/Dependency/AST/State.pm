@@ -11,30 +11,40 @@ use Class::Tiny {
   },
 };
 
+sub _croak {
+  require Carp;
+  goto &Carp::croak;
+}
+## no critic (ProhibitBuiltinHomonyms)
 sub state {
-  if ( not defined $_[0]->stack->[-1] ) {
-    die "Empty stack";
+  my ($self) = @_;
+  if ( not defined $self->stack->[-1] ) {
+    return _croak(q[Empty stack]);
   }
-  $_[0]->stack->[-1];
+  return $self->stack->[-1];
 }
 
 sub _pushstack {
-  push @{ $_[0]->stack }, $_[1];
+  my ( $self, $element ) = @_;
+  push @{ $self->stack }, $element;
+  return;
 }
 
 sub _popstack {
-  pop @{ $_[0]->stack };
+  my ($self) = @_;
+  return pop @{ $self->stack };
 }
 
 sub add_dep {
   my ( $self, $depstring ) = @_;
   require Gentoo::Dependency::AST::Node::Dependency;
-  $_[0]->state->add_dep(
-    $_[0],
+  $self->state->add_dep(
+    $self,
     Gentoo::Dependency::AST::Node::Dependency->new(
       depstring => $depstring
     )
   );
+  return;
 }
 
 sub enter_notuse_group {
@@ -46,29 +56,34 @@ sub enter_notuse_group {
       useflag => $useflag
     )
   );
+  return;
 }
 
 sub enter_use_group {
   my ( $self, $useflag ) = @_;
   require Gentoo::Dependency::AST::Node::Group::Use;
   $self->state->enter_use_group( $self, Gentoo::Dependency::AST::Node::Group::Use->new( useflag => $useflag ) );
+  return;
 }
 
 sub enter_or_group {
   my ($self) = @_;
   require Gentoo::Dependency::AST::Node::Group::Or;
   $self->state->enter_or_group( $self, Gentoo::Dependency::AST::Node::Group::Or->new() );
+  return;
 }
 
 sub enter_and_group {
   my ($self) = @_;
   require Gentoo::Dependency::AST::Node::Group::And;
   $self->state->enter_and_group( $self, Gentoo::Dependency::AST::Node::Group::And->new() );
+  return;
 }
 
 sub exit_group {
   my ($self) = @_;
-  $_[0]->state->exit_group( $_[0] );
+  $self->state->exit_group($self);
+  return;
 }
 
 1;
