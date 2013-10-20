@@ -20,8 +20,9 @@ sub _croak {
 }
 
 sub BUILD {
-  return _croak(q[<depstring> not defined])   if not defined $_[0]->depstring;
-  return _croak(q[<depstring> has no length]) if not length $_[0]->depstring;
+  my ( $self, $args ) = @_;
+  return _croak(q[<depstring> not defined])   if not defined $self->depstring;
+  return _croak(q[<depstring> has no length]) if not length $self->depstring;
   return;
 }
 
