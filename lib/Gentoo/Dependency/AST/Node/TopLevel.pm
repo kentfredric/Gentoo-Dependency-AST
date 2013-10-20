@@ -3,6 +3,8 @@ use warnings;
 
 package Gentoo::Dependency::AST::Node::TopLevel;
 
+# ABSTRACT: A C<root> node that contains all other nodes
+
 use parent 'Gentoo::Dependency::AST::Node';
 
 sub _croak {
