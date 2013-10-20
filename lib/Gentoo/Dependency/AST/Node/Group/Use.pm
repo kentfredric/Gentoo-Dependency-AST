@@ -4,14 +4,30 @@ use warnings;
 
 package Gentoo::Dependency::AST::Node::Group::Use;
 
+# ABSTRACT: A group of dependencies that require a C<useflag> to be required
+
 use parent 'Gentoo::Dependency::AST::Node';
 
 use Class::Tiny qw( useflag );
+
+=attr C<useflag>
+
+B<Required.>
+
+The literal flag that is required enabled to trigger this group.
+
+=cut
 
 sub _croak {
   require Carp;
   goto &Carp::croak;
 }
+
+=method C<BUILD>
+
+Ensures that C<useflag> is provided.
+
+=cut
 
 sub BUILD {
   my ( $self, $args ) = @_;
