@@ -16,7 +16,7 @@ BEGIN {
 
 sub _carp {
   require Carp;
-  goto Carp::carp;
+  goto &Carp::carp;
 }
 
 sub parse_dep_string {
