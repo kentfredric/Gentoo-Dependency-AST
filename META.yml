@@ -47,6 +47,7 @@ provides:
     file: lib/Gentoo/Dependency/AST/State.pm
     version: 0.001000
 requires:
+  Carp: 0
   Class::Tiny: 0
   parent: 0
   perl: 5.006
@@ -59,6 +60,7 @@ resources:
 version: 0.001000
 x_BuiltWith:
   modules:
+    Carp: 1.32
     Class::Tiny: 0.011
     Data::Dump: 1.22
     Dist::Zilla::PluginBundle::Author::KENTNL: 2.000000

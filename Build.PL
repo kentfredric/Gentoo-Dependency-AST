@@ -23,6 +23,7 @@ my %module_build_args = (
   "recommends" => {},
   "recursive_test_files" => 1,
   "requires" => {
+    "Carp" => 0,
     "Class::Tiny" => 0,
     "parent" => 0,
     "perl" => "5.006",
