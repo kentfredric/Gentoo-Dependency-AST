@@ -41,7 +41,8 @@
       },
       "runtime" : {
          "requires" : {
-            "Gentoo::Dependency::AST::State" : "0",
+            "Class::Tiny" : "0",
+            "parent" : "0",
             "perl" : "5.006",
             "strict" : "0",
             "warnings" : "0"
@@ -49,6 +50,7 @@
       },
       "test" : {
          "requires" : {
+            "Data::Dump" : "0",
             "File::Spec" : "0",
             "IO::Handle" : "0",
             "IPC::Open3" : "0",
@@ -60,15 +62,57 @@
       "Gentoo::Dependency::AST" : {
          "file" : "lib/Gentoo/Dependency/AST.pm",
          "version" : "0.001000"
+      },
+      "Gentoo::Dependency::AST::Node" : {
+         "file" : "lib/Gentoo/Dependency/AST/Node.pm",
+         "version" : "0.001000"
+      },
+      "Gentoo::Dependency::AST::Node::Dependency" : {
+         "file" : "lib/Gentoo/Dependency/AST/Node/Dependency.pm",
+         "version" : "0.001000"
+      },
+      "Gentoo::Dependency::AST::Node::Group::And" : {
+         "file" : "lib/Gentoo/Dependency/AST/Node/Group/And.pm",
+         "version" : "0.001000"
+      },
+      "Gentoo::Dependency::AST::Node::Group::NotUse" : {
+         "file" : "lib/Gentoo/Dependency/AST/Node/Group/NotUse.pm",
+         "version" : "0.001000"
+      },
+      "Gentoo::Dependency::AST::Node::Group::Or" : {
+         "file" : "lib/Gentoo/Dependency/AST/Node/Group/Or.pm",
+         "version" : "0.001000"
+      },
+      "Gentoo::Dependency::AST::Node::Group::Use" : {
+         "file" : "lib/Gentoo/Dependency/AST/Node/Group/Use.pm",
+         "version" : "0.001000"
+      },
+      "Gentoo::Dependency::AST::Node::TopLevel" : {
+         "file" : "lib/Gentoo/Dependency/AST/Node/TopLevel.pm",
+         "version" : "0.001000"
+      },
+      "Gentoo::Dependency::AST::State" : {
+         "file" : "lib/Gentoo/Dependency/AST/State.pm",
+         "version" : "0.001000"
       }
    },
    "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/kentfredric/Gentoo-Dependency-AST/issues"
+      },
+      "homepage" : "https://github.com/kentfredric/Gentoo-Dependency-AST",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/kentfredric/Gentoo-Dependency-AST.git",
+         "web" : "https://github.com/kentfredric/Gentoo-Dependency-AST"
+      }
+   },
    "version" : "0.001000",
    "x_BuiltWith" : {
-      "failures" : {
-         "Gentoo::Dependency::AST::State" : "module was not found in INC"
-      },
       "modules" : {
+         "Class::Tiny" : "0.011",
+         "Data::Dump" : "1.22",
          "Dist::Zilla::PluginBundle::Author::KENTNL" : "2.000000",
          "Dist::Zilla::PluginBundle::Author::KENTNL::Lite" : "1.7.2",
          "File::Spec" : "3.44",
@@ -82,6 +126,7 @@
          "Test::More" : "0.99",
          "Test::Pod" : "1.48",
          "Test::Pod::Coverage" : "1.08",
+         "parent" : "0.228",
          "strict" : "1.08",
          "version" : "0.9904",
          "warnings" : "1.18"
@@ -111,7 +156,7 @@
          {
             "class" : "Dist::Zilla::Plugin::Git::NextVersion",
             "name" : "@Author::KENTNL/Git::NextVersion",
-            "version" : "2.014"
+            "version" : "2.016"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaConfig",
@@ -166,7 +211,7 @@
          {
             "class" : "Dist::Zilla::Plugin::Git::GatherDir",
             "name" : "@Author::KENTNL/Git::GatherDir",
-            "version" : "2.014"
+            "version" : "2.016"
          },
          {
             "class" : "Dist::Zilla::Plugin::License",
@@ -352,27 +397,27 @@
          {
             "class" : "Dist::Zilla::Plugin::Git::Check",
             "name" : "@Author::KENTNL/Git::Check",
-            "version" : "2.014"
+            "version" : "2.016"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Tag",
             "name" : "@Author::KENTNL/Git::Tag/tag_master",
-            "version" : "2.014"
+            "version" : "2.016"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Commit",
             "name" : "@Author::KENTNL/Git::Commit",
-            "version" : "2.014"
+            "version" : "2.016"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::CommitBuild",
             "name" : "@Author::KENTNL/Git::CommitBuild",
-            "version" : "2.014"
+            "version" : "2.016"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Tag",
             "name" : "@Author::KENTNL/Git::Tag/tag_release",
-            "version" : "2.014"
+            "version" : "2.016"
          },
          {
             "class" : "Dist::Zilla::Plugin::UploadToCPAN",
@@ -382,7 +427,7 @@
          {
             "class" : "Dist::Zilla::Plugin::Twitter",
             "name" : "@Author::KENTNL/Twitter",
-            "version" : "0.022"
+            "version" : "0.023"
          },
          {
             "class" : "Dist::Zilla::Plugin::Prereqs::MatchInstalled",

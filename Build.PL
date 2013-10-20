@@ -23,13 +23,15 @@ my %module_build_args = (
   "recommends" => {},
   "recursive_test_files" => 1,
   "requires" => {
-    "Gentoo::Dependency::AST::State" => 0,
+    "Class::Tiny" => 0,
+    "parent" => 0,
     "perl" => "5.006",
     "strict" => 0,
     "warnings" => 0
   },
   "script_files" => [],
   "test_requires" => {
+    "Data::Dump" => 0,
     "File::Spec" => 0,
     "IO::Handle" => 0,
     "IPC::Open3" => 0,

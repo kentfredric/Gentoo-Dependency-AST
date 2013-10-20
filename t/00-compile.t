@@ -3,12 +3,20 @@ use warnings;
 
 # this test was generated with Dist::Zilla::Plugin::Test::Compile 2.037
 
-use Test::More  tests => 1 + ($ENV{AUTHOR_TESTING} ? 1 : 0);
+use Test::More  tests => 9 + ($ENV{AUTHOR_TESTING} ? 1 : 0);
 
 
 
 my @module_files = (
-    'Gentoo/Dependency/AST.pm'
+    'Gentoo/Dependency/AST.pm',
+    'Gentoo/Dependency/AST/Node.pm',
+    'Gentoo/Dependency/AST/Node/Dependency.pm',
+    'Gentoo/Dependency/AST/Node/Group/And.pm',
+    'Gentoo/Dependency/AST/Node/Group/NotUse.pm',
+    'Gentoo/Dependency/AST/Node/Group/Or.pm',
+    'Gentoo/Dependency/AST/Node/Group/Use.pm',
+    'Gentoo/Dependency/AST/Node/TopLevel.pm',
+    'Gentoo/Dependency/AST/State.pm'
 );
 
 

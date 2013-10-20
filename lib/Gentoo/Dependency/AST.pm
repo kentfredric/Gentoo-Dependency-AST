@@ -13,52 +13,53 @@ BEGIN {
 
 
 
-sub parse_dep_string {
-    my ( $class, $string ) = @_;
-    require Gentoo::Dependency::AST::State;
-    my $state           = Gentoo::Dependency::AST::State->new();
-    my @tokens          = grep { defined and length } split /\s+/, $string;
-    my $sub_skip_tokens = sub { splice @tokens, 0, $_[0], () };
 
-    while (@tokens) {
-        if ( not defined $tokens[0] ) {
-            warn "Undefined token!";
-            next;
-        }
-        if ( defined $tokens[1] and $tokens[1] eq '(' ) {
-            if ( $tokens[0] =~ /\A!(.*)[?]\z/msx ) {
-                $state->enter_notuse_group($1);
-                $sub_skip_tokens->(2);
-                next;
-            }
-            if ( $tokens[0] =~ /\A([^!].*)[?]\z/msx ) {
-                $state->enter_use_group($1);
-                $sub_skip_tokens->(2);
-                next;
-            }
-            if ( $tokens[0] eq '||' ) {
-                $state->enter_or_group();
-                $sub_skip_tokens->(2);
-                next;
-            }
-        }
-        if ( $tokens[0] eq '(' ) {
-            $state->enter_and_group($1);
-            $sub_skip_tokens->(1);
-            next;
-        }
-        if ( $tokens[0] eq ')' ) {
-            $state->exit_group($1);
-            $sub_skip_tokens->(1);
-            next;
-        }
-        $state->add_dep( $tokens[0] );
-        $sub_skip_tokens->(1);
+sub parse_dep_string {
+  my ( $class, $string ) = @_;
+  require Gentoo::Dependency::AST::State;
+  my $state           = Gentoo::Dependency::AST::State->new();
+  my @tokens          = grep { defined and length } split /\s+/, $string;
+  my $sub_skip_tokens = sub { splice @tokens, 0, $_[0], () };
+
+  while (@tokens) {
+    if ( not defined $tokens[0] ) {
+      warn "Undefined token!";
+      next;
     }
-    if ( not $state->state->isa('Gentoo::Dependency::AST::Node::TopLevel') ) {
-        warn "Parse was inbalanced";
+    if ( defined $tokens[1] and $tokens[1] eq '(' ) {
+      if ( $tokens[0] =~ /\A!(.*)[?]\z/msx ) {
+        $state->enter_notuse_group($1);
+        $sub_skip_tokens->(2);
+        next;
+      }
+      if ( $tokens[0] =~ /\A([^!].*)[?]\z/msx ) {
+        $state->enter_use_group($1);
+        $sub_skip_tokens->(2);
+        next;
+      }
+      if ( $tokens[0] eq '||' ) {
+        $state->enter_or_group();
+        $sub_skip_tokens->(2);
+        next;
+      }
     }
-    return $state->state;
+    if ( $tokens[0] eq '(' ) {
+      $state->enter_and_group($1);
+      $sub_skip_tokens->(1);
+      next;
+    }
+    if ( $tokens[0] eq ')' ) {
+      $state->exit_group($1);
+      $sub_skip_tokens->(1);
+      next;
+    }
+    $state->add_dep( $tokens[0] );
+    $sub_skip_tokens->(1);
+  }
+  if ( not $state->state->isa('Gentoo::Dependency::AST::Node::TopLevel') ) {
+    warn "Parse was inbalanced";
+  }
+  return $state->state;
 }
 
 1;
@@ -93,6 +94,12 @@ This module exists to parse those strings and provide a structured graph represe
     use Gentoo::Dependency::AST;
 
     my $node = Gentoo::Dependency::AST->parse_dep_string( $string_from_portage );
+
+=head1 METHODS
+
+=head2 C<parse_dep_string>
+
+    $class->parse_dep_string( $string )  # returns Gentoo::Dependency::AST::Node of some kind
 
 =head1 SUPPORTED FEATURES
 

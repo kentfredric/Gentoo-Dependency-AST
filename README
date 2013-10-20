@@ -24,6 +24,10 @@ SYNOPSIS
 
         my $node = Gentoo::Dependency::AST->parse_dep_string( $string_from_portage );
 
+METHODS
+  "parse_dep_string"
+        $class->parse_dep_string( $string )  # returns Gentoo::Dependency::AST::Node of some kind
+
 SUPPORTED FEATURES
   "use?"
         useflag? (

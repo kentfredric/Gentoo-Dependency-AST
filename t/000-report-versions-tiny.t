@@ -48,12 +48,14 @@ sub pmver {
     return sprintf('%-45s => %-10s%-15s%s', $module, $pmver, $wanted, "\n");
 }
 
+eval { $v .= pmver('Class::Tiny','any version') };
+eval { $v .= pmver('Data::Dump','any version') };
 eval { $v .= pmver('File::Spec','any version') };
-eval { $v .= pmver('Gentoo::Dependency::AST::State','any version') };
 eval { $v .= pmver('IO::Handle','any version') };
 eval { $v .= pmver('IPC::Open3','any version') };
 eval { $v .= pmver('Module::Build','0.4007') };
 eval { $v .= pmver('Test::More','0.99') };
+eval { $v .= pmver('parent','any version') };
 eval { $v .= pmver('strict','any version') };
 eval { $v .= pmver('warnings','any version') };
 
