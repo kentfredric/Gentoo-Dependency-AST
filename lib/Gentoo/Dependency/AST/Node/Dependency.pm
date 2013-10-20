@@ -4,14 +4,35 @@ use warnings;
 
 package Gentoo::Dependency::AST::Node::Dependency;
 
+# ABSTRACT: A single C<Gentoo> dependency atom
+
 use parent 'Gentoo::Dependency::AST::Node';
 
 use Class::Tiny qw( depstring );
+
+=attr C<depstring>
+
+B<Required.>
+
+Should be a Gentoo dependency atom, e.g:
+
+    dev-lang/perl
+    =dev-lang/perl-5.10
+    dev-lang/perl:0
+    =dev-lang/perl-5.10[test]
+    =dev-lang/perl-5.10[-test]
+    !<dev-lang/perl-5.18.0
+
+=cut
 
 sub _croak {
   require Carp;
   goto &Carp::croak;
 }
+
+=method C<BUILD>
+
+=cut
 
 sub BUILD {
   my ( $self, $args ) = @_;
