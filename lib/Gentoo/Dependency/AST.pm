@@ -3,7 +3,7 @@ use warnings;
 
 package Gentoo::Dependency::AST;
 
-# ABSTRACT: Convert a canonicalised (R|P|)DEPEND into an AST
+# ABSTRACT: Convert a canonicalized (R|P|)DEPEND into an Abstract Syntax Tree
 
 =head1 SYNOPSIS
 
@@ -12,7 +12,7 @@ of dependencies that are required.
 
 Namely: C<PDEPEND> , C<RDEPEND> and C<DEPEND>
 
-If you're a paludis user, one can get the canonicalised versions of these variables via
+If you're a C<paludis> user, one can get the canonicalized versions of these variables via
 
     cave show -c =cat/pkg-version
 
