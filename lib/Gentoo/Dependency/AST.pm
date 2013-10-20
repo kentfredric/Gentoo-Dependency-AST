@@ -66,19 +66,24 @@ Maps to L<< C<::Node::Group::And>|Gentoo::Dependency::AST::Node::Group::And >>
 
 =cut
 
+sub _carp {
+  require Carp;
+  goto Carp::carp;
+}
+
 sub parse_dep_string {
   my ( $class, $string ) = @_;
   require Gentoo::Dependency::AST::State;
   my $state           = Gentoo::Dependency::AST::State->new();
-  my @tokens          = grep { defined and length } split /\s+/, $string;
+  my @tokens          = grep { defined and length } split /\s+/msx, $string;
   my $sub_skip_tokens = sub { splice @tokens, 0, $_[0], () };
 
   while (@tokens) {
     if ( not defined $tokens[0] ) {
-      warn "Undefined token!";
+      _carp('Undefined token!');
       next;
     }
-    if ( defined $tokens[1] and $tokens[1] eq '(' ) {
+    if ( defined $tokens[1] and $tokens[1] eq q[(] ) {
       if ( $tokens[0] =~ /\A!(.*)[?]\z/msx ) {
         $state->enter_notuse_group($1);
         $sub_skip_tokens->(2);
@@ -89,18 +94,18 @@ sub parse_dep_string {
         $sub_skip_tokens->(2);
         next;
       }
-      if ( $tokens[0] eq '||' ) {
+      if ( $tokens[0] eq q[||] ) {
         $state->enter_or_group();
         $sub_skip_tokens->(2);
         next;
       }
     }
-    if ( $tokens[0] eq '(' ) {
+    if ( $tokens[0] eq q[(] ) {
       $state->enter_and_group($1);
       $sub_skip_tokens->(1);
       next;
     }
-    if ( $tokens[0] eq ')' ) {
+    if ( $tokens[0] eq q[)] ) {
       $state->exit_group($1);
       $sub_skip_tokens->(1);
       next;
@@ -109,7 +114,7 @@ sub parse_dep_string {
     $sub_skip_tokens->(1);
   }
   if ( not $state->state->isa('Gentoo::Dependency::AST::Node::TopLevel') ) {
-    warn "Parse was inbalanced";
+    _carp(q[Parse was inbalanced]);
   }
   return $state->state;
 }
