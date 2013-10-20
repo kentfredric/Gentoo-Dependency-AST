@@ -1,4 +1,3 @@
-
 use strict;
 use warnings;
 
@@ -12,8 +11,13 @@ BEGIN {
 
 use parent 'Gentoo::Dependency::AST::Node';
 
+sub _croak {
+  require Carp;
+  goto &Carp::croak;
+}
+
 sub exit_group {
-  die "Cannot exit group at top level";
+  return _croak(q[Cannot exit group at top level]);
 }
 
 1;
