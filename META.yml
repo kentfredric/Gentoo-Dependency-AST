@@ -349,6 +349,10 @@ x_Dist_Zilla:
       name: '@Author::KENTNL/Prereqs::MatchInstalled'
       version: 0.1.4
     -
+      class: Dist::Zilla::Plugin::Encoding
+      name: Encoding
+      version: 5.000
+    -
       class: Dist::Zilla::Plugin::Prereqs
       config:
         Dist::Zilla::Plugin::Prereqs:
