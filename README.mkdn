@@ -4,7 +4,7 @@ Gentoo::Dependency::AST - Convert a canonicalized (R|P|)DEPEND into an Abstract 
 
 # VERSION
 
-version 0.001000
+version 0.001001
 
 # SYNOPSIS
 
@@ -28,6 +28,13 @@ This module exists to parse those strings and provide a structured graph represe
 ## `parse_dep_string`
 
     $class->parse_dep_string( $string )  # returns Gentoo::Dependency::AST::Node of some kind
+
+{
+    "namespace":"Gentoo::Dependency::AST",
+    "interface":"single\_class"
+}
+
+
 
 # SUPPORTED FEATURES
 

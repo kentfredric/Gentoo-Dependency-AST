@@ -6,6 +6,18 @@ package Gentoo::Dependency::AST::Node::Dependency;
 
 # ABSTRACT: A single C<Gentoo> dependency atom
 
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Gentoo::Dependency::AST::Node::Dependency",
+    "interface":"class",
+    "inherits":"Gentoo::Dependency::AST::Node"
+}
+
+=end MetaPOD::JSON
+
+=cut
+
 use parent 'Gentoo::Dependency::AST::Node';
 
 use Class::Tiny qw( depstring );

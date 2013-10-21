@@ -8,6 +8,18 @@ package Gentoo::Dependency::AST::Node::Group::Use;
 
 use parent 'Gentoo::Dependency::AST::Node';
 
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Gentoo::Dependency::AST::Node::Group::Use",
+    "interface":"class",
+    "inherits":"Gentoo::Dependency::AST::Node"
+}
+
+=end MetaPOD::JSON
+
+=cut
+
 use Class::Tiny qw( useflag );
 
 =attr C<useflag>

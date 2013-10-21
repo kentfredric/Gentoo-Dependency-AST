@@ -6,6 +6,18 @@ package Gentoo::Dependency::AST::Node;
 
 # ABSTRACT: An Abstract Syntax Tree Node
 
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Gentoo::Dependency::AST::Node",
+    "interface":"class",
+    "inherits":"Class::Tiny::Object"
+}
+
+=end MetaPOD::JSON
+
+=cut
+
 =attr C<children>
 
 Contains the child nodes of this node. May not be relevant for some node types.

@@ -6,6 +6,18 @@ package Gentoo::Dependency::AST::State;
 
 # ABSTRACT: Temporal Tree State controller
 
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Gentoo::Dependency::AST::State",
+    "interface":"class",
+    "inherits":"Class::Tiny::Object"
+}
+
+=end MetaPOD::JSON
+
+=cut
+
 use Class::Tiny {
   stack => sub {
     require Gentoo::Dependency::AST::Node::TopLevel;

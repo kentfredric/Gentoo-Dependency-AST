@@ -5,6 +5,15 @@ package Gentoo::Dependency::AST;
 
 # ABSTRACT: Convert a canonicalized (R|P|)DEPEND into an Abstract Syntax Tree
 
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Gentoo::Dependency::AST",
+    "interface":"single_class"
+}
+
+=end MetaPOD::JSON
+
 =head1 SYNOPSIS
 
 Those familiar with Gentoo's C<ebuild> format will be aware there are several variables that contain strings
