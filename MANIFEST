@@ -8,6 +8,8 @@ META.json
 META.yml
 README
 dist.ini
+layout/self_structure.dot
+layout/self_structure.png
 lib/Gentoo/Dependency/AST.pm
 lib/Gentoo/Dependency/AST/Node.pm
 lib/Gentoo/Dependency/AST/Node/Dependency.pm
