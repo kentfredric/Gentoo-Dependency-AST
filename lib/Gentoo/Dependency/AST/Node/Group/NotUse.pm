@@ -7,10 +7,11 @@ BEGIN {
   $Gentoo::Dependency::AST::Node::Group::NotUse::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Gentoo::Dependency::AST::Node::Group::NotUse::VERSION = '0.001000';
+  $Gentoo::Dependency::AST::Node::Group::NotUse::VERSION = '0.001001';
 }
 
 # ABSTRACT: A group of dependencies that require a C<useflag> disabled to trigger require
+
 
 use parent 'Gentoo::Dependency::AST::Node::Group::Use';
 
@@ -28,7 +29,18 @@ Gentoo::Dependency::AST::Node::Group::NotUse - A group of dependencies that requ
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
+
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Gentoo::Dependency::AST::Node::Group::NotUse",
+    "interface":"class",
+    "inherits":"Gentoo::Dependency::AST::Node::Group::Use"
+}
+
+
+=end MetaPOD::JSON
 
 =head1 AUTHOR
 

@@ -6,7 +6,7 @@ BEGIN {
   $Gentoo::Dependency::AST::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Gentoo::Dependency::AST::VERSION = '0.001000';
+  $Gentoo::Dependency::AST::VERSION = '0.001001';
 }
 
 # ABSTRACT: Convert a canonicalized (R|P|)DEPEND into an Abstract Syntax Tree
@@ -81,7 +81,7 @@ Gentoo::Dependency::AST - Convert a canonicalized (R|P|)DEPEND into an Abstract 
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
 
 =head1 SYNOPSIS
 
@@ -105,6 +105,16 @@ This module exists to parse those strings and provide a structured graph represe
 =head2 C<parse_dep_string>
 
     $class->parse_dep_string( $string )  # returns Gentoo::Dependency::AST::Node of some kind
+
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Gentoo::Dependency::AST",
+    "interface":"single_class"
+}
+
+
+=end MetaPOD::JSON
 
 =head1 SUPPORTED FEATURES
 

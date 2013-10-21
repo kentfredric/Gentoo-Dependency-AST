@@ -7,10 +7,11 @@ BEGIN {
   $Gentoo::Dependency::AST::Node::Dependency::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Gentoo::Dependency::AST::Node::Dependency::VERSION = '0.001000';
+  $Gentoo::Dependency::AST::Node::Dependency::VERSION = '0.001001';
 }
 
 # ABSTRACT: A single C<Gentoo> dependency atom
+
 
 use parent 'Gentoo::Dependency::AST::Node';
 
@@ -64,7 +65,7 @@ Gentoo::Dependency::AST::Node::Dependency - A single C<Gentoo> dependency atom
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
 
 =head1 METHODS
 
@@ -84,6 +85,17 @@ Should be a Gentoo dependency atom, e.g:
     =dev-lang/perl-5.10[test]
     =dev-lang/perl-5.10[-test]
     !<dev-lang/perl-5.18.0
+
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Gentoo::Dependency::AST::Node::Dependency",
+    "interface":"class",
+    "inherits":"Gentoo::Dependency::AST::Node"
+}
+
+
+=end MetaPOD::JSON
 
 =head1 AUTHOR
 

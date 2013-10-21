@@ -7,10 +7,11 @@ BEGIN {
   $Gentoo::Dependency::AST::State::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Gentoo::Dependency::AST::State::VERSION = '0.001000';
+  $Gentoo::Dependency::AST::State::VERSION = '0.001001';
 }
 
 # ABSTRACT: Temporal Tree State controller
+
 
 use Class::Tiny {
   stack => sub {
@@ -119,7 +120,7 @@ Gentoo::Dependency::AST::State - Temporal Tree State controller
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
 
 =head1 METHODS
 
@@ -213,6 +214,17 @@ Set C<$element> as the new parse state, by pushing it on to the stack.
 Remove the top element from the stack, deferring control to its parent.
 
     $discarded = $state->_popstack();
+
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Gentoo::Dependency::AST::State",
+    "interface":"class",
+    "inherits":"Class::Tiny::Object"
+}
+
+
+=end MetaPOD::JSON
 
 =head1 AUTHOR
 

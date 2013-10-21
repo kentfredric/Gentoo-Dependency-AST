@@ -6,10 +6,11 @@ BEGIN {
   $Gentoo::Dependency::AST::Node::TopLevel::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Gentoo::Dependency::AST::Node::TopLevel::VERSION = '0.001000';
+  $Gentoo::Dependency::AST::Node::TopLevel::VERSION = '0.001001';
 }
 
 # ABSTRACT: A C<root> node that contains all other nodes
+
 
 use parent 'Gentoo::Dependency::AST::Node';
 
@@ -36,7 +37,18 @@ Gentoo::Dependency::AST::Node::TopLevel - A C<root> node that contains all other
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
+
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Gentoo::Dependency::AST::Node::TopLevel",
+    "interface":"class",
+    "inherits":"Gentoo::Dependency::AST::Node"
+}
+
+
+=end MetaPOD::JSON
 
 =head1 AUTHOR
 

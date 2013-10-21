@@ -7,10 +7,11 @@ BEGIN {
   $Gentoo::Dependency::AST::Node::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Gentoo::Dependency::AST::Node::VERSION = '0.001000';
+  $Gentoo::Dependency::AST::Node::VERSION = '0.001001';
 }
 
 # ABSTRACT: An Abstract Syntax Tree Node
+
 
 
 use Class::Tiny {
@@ -77,7 +78,7 @@ Gentoo::Dependency::AST::Node - An Abstract Syntax Tree Node
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
 
 =head1 METHODS
 
@@ -127,6 +128,17 @@ finalize the present node, and defer tree construction to the parent object.
 =head2 C<children>
 
 Contains the child nodes of this node. May not be relevant for some node types.
+
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Gentoo::Dependency::AST::Node",
+    "interface":"class",
+    "inherits":"Class::Tiny::Object"
+}
+
+
+=end MetaPOD::JSON
 
 =head1 AUTHOR
 

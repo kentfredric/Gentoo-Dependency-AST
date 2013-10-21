@@ -7,12 +7,13 @@ BEGIN {
   $Gentoo::Dependency::AST::Node::Group::Use::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Gentoo::Dependency::AST::Node::Group::Use::VERSION = '0.001000';
+  $Gentoo::Dependency::AST::Node::Group::Use::VERSION = '0.001001';
 }
 
 # ABSTRACT: A group of dependencies that require a C<useflag> to be required
 
 use parent 'Gentoo::Dependency::AST::Node';
+
 
 use Class::Tiny qw( useflag );
 
@@ -43,7 +44,7 @@ Gentoo::Dependency::AST::Node::Group::Use - A group of dependencies that require
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
 
 =head1 METHODS
 
@@ -58,6 +59,17 @@ Ensures that C<useflag> is provided.
 B<Required.>
 
 The literal flag that is required enabled to trigger this group.
+
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Gentoo::Dependency::AST::Node::Group::Use",
+    "interface":"class",
+    "inherits":"Gentoo::Dependency::AST::Node"
+}
+
+
+=end MetaPOD::JSON
 
 =head1 AUTHOR
 

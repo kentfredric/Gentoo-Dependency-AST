@@ -3,7 +3,7 @@ NAME
     Abstract Syntax Tree
 
 VERSION
-    version 0.001000
+    version 0.001001
 
 SYNOPSIS
     Those familiar with Gentoo's "ebuild" format will be aware there are
