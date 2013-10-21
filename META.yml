@@ -65,7 +65,7 @@ x_BuiltWith:
     Data::Dump: 1.22
     Dist::Zilla::PluginBundle::Author::KENTNL: 2.000000
     Dist::Zilla::PluginBundle::Author::KENTNL::Lite: 1.7.2
-    File::Spec: 3.44
+    File::Spec: 3.40
     IO::Handle: 1.35
     IPC::Open3: 1.15
     Module::Build: 0.4007
