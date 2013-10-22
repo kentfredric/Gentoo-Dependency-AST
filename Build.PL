@@ -18,6 +18,9 @@ my %module_build_args = (
   ],
   "dist_name" => "Gentoo-Dependency-AST",
   "dist_version" => "0.001001",
+  "extra_manify_args" => {
+    "utf8" => 1
+  },
   "license" => "perl",
   "module_name" => "Gentoo::Dependency::AST",
   "recommends" => {},
@@ -52,6 +55,10 @@ unless ( eval { Module::Build->VERSION(0.4004) } ) {
       $br->{$mod} = $tr->{$mod};
     }
   }
+}
+
+unless ( eval { Module::Build->VERSION(0.4007) } ) {
+  delete $module_build_args{extra_manify_args};
 }
 
 my $build = Module::Build->new(%module_build_args);
